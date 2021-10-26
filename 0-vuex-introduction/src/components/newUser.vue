@@ -6,12 +6,12 @@
 export default {
   methods: {
     uptadeName() {
-      this.$store.state.itemList.push({
-        id: 4,
-        title: "swift",
+      const userData = {
+        id: new Date().getTime(),
+        title: "swift" + new Date().getTime(),
         type: "react.js",
-      });
-      this.$store.state.fullName = new Date().getTime();
+      };
+      this.$store.dispatch("newItem", userData);
     },
   },
 };

@@ -24,9 +24,22 @@ const store = createStore({
             { id: 3, title: "provider", type: "Flutter" }
         ]
     },
+    mutations: {
+        newItem(state, item) {
+            state.itemList.push(item)
+        }
+    },
+    actions: {
+        newItem({ commit }, item) {
+            console.log("item:>>", item);
+            setTimeout(() => {
+                commit("newItem", item);
+            }, 1000);
+        }
+    },
     getters: {
-        frontItem: state => state.itemList.filter(i => i.type === "react.js"),
-        activeUser(state) {
+        _frontItem: state => state.itemList.filter(i => i.type === "react.js"),
+        _activeUser(state) {
             const person = {
                 ...state.person
             };

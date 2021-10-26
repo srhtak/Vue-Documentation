@@ -1,31 +1,27 @@
 <template>
-  <div class="container">
+  <!-- <div class="container">
     {{ $store.state.person }}
     {{ $store.state.permissions }}
-  </div>
-  <ul>
-    <li v-for="(item, index) in frontItem" :key="index">
-      {{ item.title }}
-    </li>
-  </ul>
-  {{ $store.state.fullName }}
+  </div> -->
+
+  <userlist />
   <newuser />
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import Newuser from "./components/newUser.vue";
+import Userlist from "./components/userList.vue";
 export default {
   name: "App",
   components: {
     Newuser,
+    Userlist,
   },
   created() {
     // console.log(this.$store.state.person);
     // console.log(this.$store.getters.frontItem);
     // console.log(this.$store.getters.activeUser);
   },
-  computed: mapGetters(["frontItem", "activeUser"]),
 };
 </script>
 
